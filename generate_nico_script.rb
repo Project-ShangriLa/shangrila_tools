@@ -32,9 +32,17 @@ bases.each do |base|
   word_list.push base["twitter_account"]
   word_list.push base["title"]
 
-  if base["title_short"]
-   word_list.push base["title_short"]
+  if !base["title_short1"].empty?
+   word_list.push base["title_short1"]
   end
+  if !base["title_short2"].empty?
+   word_list.push base["title_short2"]
+  end
+  if !base["title_short3"].empty?
+   word_list.push base["title_short3"]
+  end
+
+
 
   word_list.push base["twitter_hash_tag"]
 end
