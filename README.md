@@ -17,6 +17,12 @@
  ruby generate_nico_script.rb -c 4
 ```
 
+### 放送クールを複数指定
+
+```
+ ruby generate_nico_script.rb -c 2,3,4,5
+```
+
 ### jarを指定
 
 ```

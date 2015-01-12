@@ -14,12 +14,18 @@ opt.parse!(ARGV)
 
 rest_api_url = "http://localhost:3000/bases.json"
 
-if @cours_id then
-  rest_api_url = "http://localhost:3000/bases.json?cours_id=#{@cours_id}"
-end
+bases = []
 
-result = Net::HTTP.get(URI.parse(rest_api_url))
-bases = JSON.load(result)
+if @cours_id then
+ @cours_id.split(',').each do |cours_id|
+  rest_api_url = "http://localhost:3000/bases.json?cours_id=#{cours_id}"
+  result = Net::HTTP.get(URI.parse(rest_api_url))
+  bases.concat(JSON.load(result))
+ end
+else
+ result = Net::HTTP.get(URI.parse(rest_api_url))
+ bases = JSON.load(result)
+end
 
 word_list = []
 bases.each do |base|
@@ -38,3 +44,4 @@ shell_cmd = sprintf('java -jar %s "%s"', @nico_exe_jar, word_list.join(','))
 
 puts shebang
 puts shell_cmd
+puts word_list.length
