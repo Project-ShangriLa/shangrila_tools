@@ -7,9 +7,6 @@ master =  Shangrila::Sora.new().get_flat_data(year, cours, ['title', 'title_shor
 
 flat_data = master.flatten
 
-print '"'
-
-
 words = ""
 
 flat_data.each{|f|
@@ -20,8 +17,6 @@ flat_data.each{|f|
 
 words.slice!(words.length - 1)
 print words
-print '"'
-
 
 puts ""
 puts "------------"
