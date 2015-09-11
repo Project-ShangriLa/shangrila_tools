@@ -1,5 +1,7 @@
 require 'shangrila'
 
+#bundle exe ruby bigQuerySQL_for_CF.rb 2015 3 2015_C3a.2015_C7a
+
 year = ARGV[0]
 cours = ARGV[1]
 
