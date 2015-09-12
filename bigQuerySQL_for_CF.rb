@@ -15,8 +15,13 @@ count_limit = 10
 val_title = ''
 
 masters.each do |master|
- val_title += sprintf('        WHEN tweet_text CONTAINS \'%s\' OR tweet_text CONTAINS \'%s\' OR tweet_text CONTAINS \'%s\' THEN \'%s\'' + "\n",
-  master['title'], master['title_short1'], master['twitter_hash_tag'], master['title'])
+ val_title += sprintf('        WHEN tweet_text CONTAINS \'%s\' OR tweet_text CONTAINS \'%s\'  OR tweet_text CONTAINS \'%s\' OR tweet_text CONTAINS \'%s\' OR tweet_text CONTAINS \'%s\' THEN \'%s\'' + "\n",
+  master['title'],
+  master['title_short1'] != '' ? master['title_short1'] : master['title'],
+  master['title_short2'] != '' ? master['title_short2'] : master['title'],
+  master['title_short3'] != '' ? master['title_short3'] : master['title'],
+  master['twitter_hash_tag'],
+  master['title'])
 end
 
 sql = <<"EOS"
