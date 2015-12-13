@@ -8,8 +8,8 @@ open(ARGV[0]) {|file|
       now_id = fields[0]
       if now_id != pre_id
         my_id = my_id + 1
-        pre_id = now_id
-      end
-      puts "#{my_id},#{fields[1]},#{fields[2]}"
-    end
+pre_id = now_id
+end
+puts "#{my_id},#{fields[1]},#{fields[2]}"
+end
 }
